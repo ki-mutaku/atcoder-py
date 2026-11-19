@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# サンプルケースでテスト:  t [main.py | 問題ディレクトリ]
+set -euo pipefail
+repo="$(cd "$(dirname "$0")/.." && pwd)"
+source "$repo/scripts/_taskdir.sh"
+dir="$(taskdir "${1:-.}")"
+cd "$dir"
+oj t -c "$repo/.venv/bin/python main.py" -d ./tests/

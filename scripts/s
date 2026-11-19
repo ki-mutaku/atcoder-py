@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# 提出:  s [main.py | 問題ディレクトリ]
+set -euo pipefail
+repo="$(cd "$(dirname "$0")/.." && pwd)"
+source "$repo/scripts/_taskdir.sh"
+dir="$(taskdir "${1:-.}")"
+cd "$dir"
+acc s main.py
